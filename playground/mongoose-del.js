@@ -14,12 +14,14 @@ const dummyData = [{
     text: 'Todo test 3'
 }];
 
-Todo.insertMany(dummyData).then(() => {
-    // Todo.remove({}).then((result) => {
-    //     console.log(result);
-    // });
-
-    Todo.findByIdAndRemove({}).then((result) => {
+Todo.remove({}).then(() => {
+    return Todo.insertMany(dummyData);
+}).then(() => {
+    //return Todo.findByIdAndRemove({_id: dummyData[1]._id});
+    return Todo.findByIdAndRemove(dummyData[1]._id);
+}).then((result) => {
         console.log(result);
-    });
+}).catch((e) => {
+    console.log('Error:', e);
 });
+
