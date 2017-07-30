@@ -15,8 +15,10 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "*",
+    "crypto-js": "*",
     "express": "*",
-    "lodash": "^4.17.4",
+    "jsonwebtoken": "^7.4.1",
+    "lodash": "*",
     "mongodb": "*",
     "mongoose": "*",
     "validator": "*"
