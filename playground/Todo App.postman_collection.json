@@ -1,0 +1,210 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Todo App",
+		"_postman_id": "191a1572-1c48-64c6-5c04-5378dc0cf0d6",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET /todos",
+			"request": {
+				"url": "{{url}}/todos",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "x-auth",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1OTdmNzU3NDg3MjYzNzAwMTExOGUwMzMiLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNTAxNTI1MzY1fQ.D9Vf05ekc8_nzbkYLwN6PwCIkPAOuSF5VxdmuMhNzAU",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"text\": \"Task 3\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "POST /todos",
+			"request": {
+				"url": "{{url}}/todos",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "x-auth",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1OTdmNzU3NDg3MjYzNzAwMTExOGUwMzMiLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNTAxNTI1MzY1fQ.D9Vf05ekc8_nzbkYLwN6PwCIkPAOuSF5VxdmuMhNzAU",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"text\": \"Task 1\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET /todos/:id",
+			"request": {
+				"url": "{{url}}/todos/597f75b1872637001118e035",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "x-auth",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1OTdmNzU3NDg3MjYzNzAwMTExOGUwMzMiLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNTAxNTI1MzY1fQ.D9Vf05ekc8_nzbkYLwN6PwCIkPAOuSF5VxdmuMhNzAU",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"text\": \"Task 3\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH /todos/:id",
+			"request": {
+				"url": "{{url}}/todos/597f75b1872637001118e035",
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "x-auth",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1OTdmNzU3NDg3MjYzNzAwMTExOGUwMzMiLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNTAxNTI1MzY1fQ.D9Vf05ekc8_nzbkYLwN6PwCIkPAOuSF5VxdmuMhNzAU",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"completed\": true\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /todos/:id",
+			"request": {
+				"url": "{{url}}/todos/597f75b1872637001118e035",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "x-auth",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1OTdmNzU3NDg3MjYzNzAwMTExOGUwMzMiLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNTAxNTI1MzY1fQ.D9Vf05ekc8_nzbkYLwN6PwCIkPAOuSF5VxdmuMhNzAU",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "POST /users",
+			"request": {
+				"url": "{{url}}/users",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"ygor@net.com\",\n\t\"password\": \"password!\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "POST /users/login",
+			"request": {
+				"url": "{{url}}/users/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"ygor@net.com\",\n\t\"password\": \"password!\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET /users/me",
+			"request": {
+				"url": "{{url}}/users/me",
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1OTdmNzU3NDg3MjYzNzAwMTExOGUwMzMiLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNTAxNTI1MzY1fQ.D9Vf05ekc8_nzbkYLwN6PwCIkPAOuSF5VxdmuMhNzAU",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /users/me/token",
+			"request": {
+				"url": "{{url}}/users/me/token",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-auth",
+						"value": "test",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
