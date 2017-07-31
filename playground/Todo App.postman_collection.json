@@ -8,7 +8,7 @@
 	},
 	"item": [
 		{
-			"name": "GET /todos",
+			"name": "GET /todos (Get all todos)",
 			"request": {
 				"url": "{{url}}/todos",
 				"method": "GET",
@@ -20,7 +20,7 @@
 					},
 					{
 						"key": "x-auth",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1OTdmNzU3NDg3MjYzNzAwMTExOGUwMzMiLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNTAxNTI1MzY1fQ.D9Vf05ekc8_nzbkYLwN6PwCIkPAOuSF5VxdmuMhNzAU",
+						"value": "{{token}}",
 						"description": ""
 					}
 				],
@@ -33,7 +33,19 @@
 			"response": []
 		},
 		{
-			"name": "POST /todos",
+			"name": "POST /todos (Create Todo)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var body = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable('todoId', body._id);"
+						]
+					}
+				}
+			],
 			"request": {
 				"url": "{{url}}/todos",
 				"method": "POST",
@@ -45,7 +57,7 @@
 					},
 					{
 						"key": "x-auth",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1OTdmNzU3NDg3MjYzNzAwMTExOGUwMzMiLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNTAxNTI1MzY1fQ.D9Vf05ekc8_nzbkYLwN6PwCIkPAOuSF5VxdmuMhNzAU",
+						"value": "{{token}}",
 						"description": ""
 					}
 				],
@@ -58,9 +70,9 @@
 			"response": []
 		},
 		{
-			"name": "GET /todos/:id",
+			"name": "GET /todos/:id (Get Todo by Id)",
 			"request": {
-				"url": "{{url}}/todos/597f75b1872637001118e035",
+				"url": "{{url}}/todos/{{todoId}}",
 				"method": "GET",
 				"header": [
 					{
@@ -70,7 +82,7 @@
 					},
 					{
 						"key": "x-auth",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1OTdmNzU3NDg3MjYzNzAwMTExOGUwMzMiLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNTAxNTI1MzY1fQ.D9Vf05ekc8_nzbkYLwN6PwCIkPAOuSF5VxdmuMhNzAU",
+						"value": "{{token}}",
 						"description": ""
 					}
 				],
@@ -83,9 +95,9 @@
 			"response": []
 		},
 		{
-			"name": "PATCH /todos/:id",
+			"name": "PATCH /todos/:id (Update todo by Id)",
 			"request": {
-				"url": "{{url}}/todos/597f75b1872637001118e035",
+				"url": "{{url}}/todos/{{todoId}}",
 				"method": "PATCH",
 				"header": [
 					{
@@ -95,7 +107,7 @@
 					},
 					{
 						"key": "x-auth",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1OTdmNzU3NDg3MjYzNzAwMTExOGUwMzMiLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNTAxNTI1MzY1fQ.D9Vf05ekc8_nzbkYLwN6PwCIkPAOuSF5VxdmuMhNzAU",
+						"value": "{{token}}",
 						"description": ""
 					}
 				],
@@ -108,9 +120,9 @@
 			"response": []
 		},
 		{
-			"name": "DELETE /todos/:id",
+			"name": "DELETE /todos/:id (Delete Todo by Id)",
 			"request": {
-				"url": "{{url}}/todos/597f75b1872637001118e035",
+				"url": "{{url}}/todos/{{todoId}}",
 				"method": "DELETE",
 				"header": [
 					{
@@ -120,7 +132,7 @@
 					},
 					{
 						"key": "x-auth",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1OTdmNzU3NDg3MjYzNzAwMTExOGUwMzMiLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNTAxNTI1MzY1fQ.D9Vf05ekc8_nzbkYLwN6PwCIkPAOuSF5VxdmuMhNzAU",
+						"value": "{{token}}",
 						"description": ""
 					}
 				],
@@ -133,7 +145,19 @@
 			"response": []
 		},
 		{
-			"name": "POST /users",
+			"name": "POST /users (Signup)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var token = postman.getResponseHeader('x-auth');",
+							"postman.setEnvironmentVariable('token', token);"
+						]
+					}
+				}
+			],
 			"request": {
 				"url": "{{url}}/users",
 				"method": "POST",
@@ -153,7 +177,19 @@
 			"response": []
 		},
 		{
-			"name": "POST /users/login",
+			"name": "POST /users/login (Login)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var token = postman.getResponseHeader('x-auth');",
+							"postman.setEnvironmentVariable('token', token);"
+						]
+					}
+				}
+			],
 			"request": {
 				"url": "{{url}}/users/login",
 				"method": "POST",
@@ -173,14 +209,14 @@
 			"response": []
 		},
 		{
-			"name": "GET /users/me",
+			"name": "GET /users/me (Get User info)",
 			"request": {
 				"url": "{{url}}/users/me",
 				"method": "GET",
 				"header": [
 					{
 						"key": "x-auth",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1OTdmNzU3NDg3MjYzNzAwMTExOGUwMzMiLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNTAxNTI1MzY1fQ.D9Vf05ekc8_nzbkYLwN6PwCIkPAOuSF5VxdmuMhNzAU",
+						"value": "{{token}}",
 						"description": ""
 					}
 				],
@@ -190,14 +226,14 @@
 			"response": []
 		},
 		{
-			"name": "DELETE /users/me/token",
+			"name": "DELETE /users/me/token (Logout)",
 			"request": {
 				"url": "{{url}}/users/me/token",
 				"method": "DELETE",
 				"header": [
 					{
 						"key": "x-auth",
-						"value": "test",
+						"value": "{{token}}",
 						"description": ""
 					}
 				],
