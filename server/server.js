@@ -14,6 +14,8 @@ var app = express();
 
 var test = "test";
 
+var testRedi = "Redi"
+
 app.use(parser.json());
 
 app.get('/', (req, res) => {
